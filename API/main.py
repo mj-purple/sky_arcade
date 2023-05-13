@@ -28,3 +28,7 @@ async def remove_points(user_uuid: str, points: int = 1):
 @app.delete("/user/delete/{user_uuid}", tags=["Users"])
 async def delete_user(user_uuid: str):
     return await user_manager.delete_user(user_uuid)
+
+@app.delete("/users/clear", tags=["Users"])
+async def clear_users():
+    return await user_manager.clear_users()

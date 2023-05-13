@@ -69,3 +69,8 @@ async def get_all_users() -> dict:
     if data == {}:
         raise HTTPException(status_code=404, detail="No users found")
     return data
+
+async def clear_users() -> dict:
+    with open(user_json, "w") as write_file:
+        json.dump({}, write_file)
+    return {"ok": True}
