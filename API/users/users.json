@@ -1,26 +1,2 @@
 {
-  "16bbc8c1-e1e9-48d7-b2ac-91479cd2d216": {
-    "name": "Claudia",
-    "picture": "hola.jpg",
-    "wins": 3,
-    "losses": 0
-  },
-  "c7a26436-cdb5-474a-a7c1-73c3b278cfb0": {
-    "name": "Blai",
-    "picture": null,
-    "wins": 2,
-    "losses": 0
-  },
-  "b594c398-2329-4fac-aa0d-cdda970c7155": {
-    "name": "MJ",
-    "picture": null,
-    "wins": 0,
-    "losses": 2
-  },
-  "833c9ba2-7e95-4003-b08e-a0dadd431a16": {
-    "name": "Elna",
-    "picture": "elna.penege",
-    "wins": 0,
-    "losses": 3
-  }
 }

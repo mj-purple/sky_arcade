@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-import API.users.user_manager as user_manager
+import users.user_manager as user_manager
 
 app = FastAPI()
 
@@ -17,14 +17,14 @@ async def get_user(user_uuid: str):
 async def create_user(name: str, picture: str = None):
     return await user_manager.create_user(name, picture)
 
-@app.patch("/user/add-wins", tags=["Users"])
-async def add_wins(user_uuid: str, wins: int = 1):
-    return await user_manager.add_wins(user_uuid, wins)
+@app.patch("/user/add-points", tags=["Users"])
+async def add_points(user_uuid: str, points: int = 1):
+    return await user_manager.add_points(user_uuid, points)
 
-@app.patch("/user/add-losses", tags=["Users"])
-async def add_losses(user_uuid: str, losses: int = 1):
-    return await user_manager.add_losses(user_uuid, losses)
+@app.patch("/user/remove-points", tags=["Users"])
+async def remove_points(user_uuid: str, points: int = 1):
+    return await user_manager.remove_points(user_uuid, points)
 
-@app.delete("/user/delete", tags=["Users"])
+@app.delete("/user/delete/{user_uuid}", tags=["Users"])
 async def delete_user(user_uuid: str):
     return await user_manager.delete_user(user_uuid)
