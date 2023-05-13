@@ -1,3 +1,4 @@
+
 div {
   display: flex;
 }
@@ -9,5 +10,9 @@ div {
   clip-path: polygon(auto 0, 100% 0, 80% 100%, 20% 100%);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  margin: 0 auto
+  margin: 0 auto;
+}
+.tittle {
+  margin: 0 auto;
+
 }
