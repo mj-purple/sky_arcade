@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-import user_manager
+import API.users.user_manager as user_manager
 
 app = FastAPI()
 

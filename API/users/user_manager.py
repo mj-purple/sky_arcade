@@ -70,4 +70,3 @@ async def get_all_users() -> dict:
     with open(user_json, "r") as read_file:
         data = json.load(read_file)
     return data
-        
