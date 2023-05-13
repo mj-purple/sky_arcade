@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-import API.users.user_manager as user_manager
+import users.user_manager as user_manager
 
 app = FastAPI()
 
@@ -25,6 +25,6 @@ async def add_wins(user_uuid: str, wins: int = 1):
 async def add_losses(user_uuid: str, losses: int = 1):
     return await user_manager.add_losses(user_uuid, losses)
 
-@app.delete("/user/delete", tags=["Users"])
+@app.delete("/user/delete/{user_uuid}", tags=["Users"])
 async def delete_user(user_uuid: str):
     return await user_manager.delete_user(user_uuid)
