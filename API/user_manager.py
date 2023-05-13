@@ -4,20 +4,30 @@ from uuid import uuid4
 FLIGHT_NUMBER = None
 
 def create_user(name: str, picture: str = None) -> dict:
-    with open("users.json", "r+") as write_file:
-        data = json.load(write_file)
+    with open("users.json", "r") as read_file:
+        data = json.load(read_file)
+ 
+    user_uuid = str(uuid4())
+    data[user_uuid] = {
+        "name": name,
+        "picture": picture,
+        "wins": 0,
+        "losses": 0
+    }
+    with open("users.json", "w") as write_file:
+        json.dump(data, write_file, indent=2)
+    
+    return {user_uuid: data[user_uuid]}
 
-        user_uuid = str(uuid4())
-        data[user_uuid] = {
-            "name": name,
-            "picture": picture,
-            "wins": 0,
-            "losses": 0
-        }
-        json_object = json.dumps(data, indent=4)
-        write_file.write(json_object)
-        return data
+def delete_user(user_uuid: str) -> None:
+    with open("users.json", "r") as read_file:
+        data = json.load(read_file)
+ 
+    del data[user_uuid]
 
+    with open("users.json", "w") as write_file:
+        json.dump(data, write_file, indent=2)
+    
 def add_wins(user_uuid: str, wins: int = 1) -> dict:
     with open("users.json", "w") as write_file:
         data = json.load(write_file)[str(FLIGHT_NUMBER)]
