@@ -3,10 +3,10 @@ import socket
 
 sock = socket.socket()
 try:
-    sock.connect((t.HOST, 7322))
+    sock.connect((t.HOST, t.PORT))
 except socket.error as e:
-    print("hey")
     print(str(e))
  
 message = "Hello Server :D"
 sock.send(str.encode(message))
+sock.send(str.encode("BYE"))

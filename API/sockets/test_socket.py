@@ -1,17 +1,15 @@
 import socket
 from _thread import *
 
-HOST = "127.0.0.1"
+HOST = "10.10.10.11"
 PORT = 7321
 
 def client_handler(conn):
 	while True:
 		data = conn.recv(1024)
 		message = data.decode('utf-8')
-		if message == 'BYE':
-			break
-		print(message)
-	conn.close()
+		if message:
+			print(message)
 
 def accept_connections(sock):
 	client, addr = sock.accept()
